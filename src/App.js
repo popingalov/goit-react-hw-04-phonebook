@@ -21,6 +21,7 @@ class App extends Component {
       this.setState({ historyDelCont: localS });
     }
     parsedContacts && this.setState({ contacts: parsedContacts });
+    window.onunload();
   }
 
   componentDidUpdate(prevState) {
