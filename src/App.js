@@ -21,13 +21,15 @@ class App extends Component {
       this.setState({ historyDelCont: localS });
     }
     parsedContacts && this.setState({ contacts: parsedContacts });
-    window.onunload();
+    window.onunload = () => {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    };
   }
 
-  componentDidUpdate(prevState) {
+  /*  componentDidUpdate(prevState) {
     this.state.contacts !== prevState.contacts &&
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-  }
+  } */
 
   addContact = (name, number) => {
     if (this.state.contacts.find(contact => name === contact.name)) {
