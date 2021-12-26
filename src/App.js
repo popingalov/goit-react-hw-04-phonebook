@@ -7,21 +7,11 @@ import Filter from './Components/Filter/Filter';
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(
+    JSON.parse(window.localStorage.getItem('contacts')) ?? [],
+  );
   const [filter, setFilter] = useState('');
-  /*  useEffect(() => {
-    const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-    setContacts(parsedContacts && []);
 
-    window.onunload = () => {
-      console.log(contacts);
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    };
-  }, []); */
-
-  useEffect(() => {
-    setContacts(JSON.parse(window.localStorage.getItem('contacts')) ?? []);
-  }, []);
   useEffect(() => {
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
