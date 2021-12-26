@@ -3,7 +3,7 @@ import './App.css';
 import ContactForm from './Components/ContactForm/ContactForm';
 import ContactList from './Components/ContactList/ContactList';
 import Filter from './Components/Filter/Filter';
-import ContactsHook from './Components/hooks/ContactsHook';
+import ContactsHook from './hooks/ContactsHook';
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
