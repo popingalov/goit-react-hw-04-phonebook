@@ -8,7 +8,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [contacts, setContacts] = useState([]);
-  /*   const [value, setValue] = useState(0); */
   const [filter, setFilter] = useState('');
   /*  useEffect(() => {
     const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
