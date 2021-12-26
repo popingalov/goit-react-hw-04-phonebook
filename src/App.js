@@ -1,20 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import ContactForm from './Components/ContactForm/ContactForm';
 import ContactList from './Components/ContactList/ContactList';
 import Filter from './Components/Filter/Filter';
-
+import ContactsHook from './Components/hooks/ContactsHook';
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const [contacts, setContacts] = useState(
-    JSON.parse(window.localStorage.getItem('contacts')) ?? [],
-  );
+  const [contacts, setContacts] = ContactsHook('contacts');
   const [filter, setFilter] = useState('');
-
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   const addContact = (name, number) => {
     if (contacts.find(contact => name === contact.name)) {
